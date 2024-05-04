@@ -22,9 +22,15 @@ class Solution:
                 thisLevel.append(toCheck[i].val)
                 if toCheck[i].left: nextCheck.append(toCheck[i].left)
                 if toCheck[i].right: nextCheck.append(toCheck[i].right)
-                res.append(thisLevel)
-                thisLevel = []
-                toCheck = nextCheck
-                nextCheck = []
+            res.append(thisLevel)
+            thisLevel = []
+            toCheck = nextCheck
+            nextCheck = []
 
         return res
+
+
+sln = Solution()
+bt = TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7)))
+res = sln.levelOrder(bt)
+print(res)
