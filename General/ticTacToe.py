@@ -32,22 +32,28 @@ class TicTacToe:
     def checkWin(self):
         # check horiz
         for i in range(len(self.board[0])):
-            char = self.board[i]
-            for j in range(len(self.board)):
-                print(self.board[i][j])
-                if self.board[i][j] != char:
-                    return False
-
+            row = self.board[i]
+            rowSet = set(row)
+            if len(rowSet) == 1 and rowSet.pop() != " ":
+                return True
 
         # check vert
+        for i in range(len(self.board[0])):
+            colSet = set()
+            for j in range(len(self.board)):
+                colSet.add(self.board[j][i])
+            if len(colSet) == 1 and colSet.pop() != " ":
+                return True
+
+        return False
 
         # check diag
 
 
 ttt = TicTacToe()
 ttt.drawBoard()
-ttt.markSquare('a', 1, 'x')
 ttt.markSquare('b', 1, 'x')
-ttt.markSquare('c', 1, 'x')
+ttt.markSquare('b', 2, 'x')
+ttt.markSquare('b', 3, 'x')
 res = ttt.checkWin()
 print(res)
