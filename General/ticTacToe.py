@@ -45,15 +45,21 @@ class TicTacToe:
             if len(colSet) == 1 and colSet.pop() != " ":
                 return True
 
-        return False
-
         # check diag
+        char = self.board[1][1]
+        if self.board[0][0] == char and self.board[2][2] == char:
+            return True
+        if self.board[2][0] == char and self.board[0][2] == char:
+            return True
+
+        return False
 
 
 ttt = TicTacToe()
 ttt.drawBoard()
-ttt.markSquare('b', 1, 'x')
+ttt.markSquare('a', 3, 'x')
 ttt.markSquare('b', 2, 'x')
-ttt.markSquare('b', 3, 'x')
+ttt.markSquare('c', 2, 'x')
+ttt.markSquare('a', 2, 'o')
 res = ttt.checkWin()
 print(res)
